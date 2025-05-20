@@ -1,26 +1,29 @@
-# Nutrito
 
-**Nutrito** is a powerful Flutter plugin designed to analyze food ingredient lists and instantly rate the health impact of packaged food products. It uses machine learning to identify harmful or beneficial ingredients and helps users make smarter, healthier food choices.
+# ⚡ Hybrid_manager
 
----
-
-##  Features
-
-- 🔍 Scan and analyze ingredient lists
-- ⚖️ Get real-time health ratings (e.g., Healthy, Moderate, Unhealthy)
-- 💡 Understand what each ingredient means
-- 🧠 Backed by machine learning for smarter suggestions
-- 📊 Feedback ratios and explanations for transparency
+A powerful yet lightweight state management solution for Flutter that combines the best of GetX and Riverpod. Use class-based or functional state handling, scoped overrides, and hot-reload-friendly APIs — all in one clean package.
 
 ---
 
-##  Getting Started
+## ✨ Features
 
-Add Nutrito to your Flutter project by including it in your `pubspec.yaml`:
+- 🔁 `Reactive<T>` for reactive state (like GetX's Rx)
+- 🧠 `MyStateNotifier<T>` for class-based state logic (like Riverpod's StateNotifier)
+- 🌱 `Provider<T>` and `ScopedProvider<T>` for dependency injection and state scoping
+- 💡 `watch()` and `read()` for clean, functional state access
+- 🔄 Hot-reload friendly design
+- 🧪 Optional code generation for advanced performance
+- 🛠 CLI tooling support (coming soon)
+
+---
+
+## 🚀 Getting Started
+
+Add the package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  nutrito: ^0.0.1
+  your_package_name: ^0.0.1
 ```
 
 Then run:
@@ -31,40 +34,73 @@ flutter pub get
 
 ---
 
-##  Usage
+## 🛠 Usage
+
+### Functional Reactive State
 
 ```dart
-import 'package:nutrito/nutrito.dart';
+final counter = Reactive<int>(0);
 
-void main() {
-  final result = Nutrito.analyze("Ingredients: Sugar, Palm Oil, Salt, Turmeric");
-  print(result.healthRating); // Output: Unhealthy
-  print(result.feedback);     // Output: Too much sugar and palm oil
+counter.listen((value) => print('New value: $value'));
+
+counter.value++; // prints: New value: 1
+```
+
+### Class-based Notifier
+
+```dart
+class CounterNotifier extends MyStateNotifier<int> {
+  CounterNotifier() : super(0);
+
+  void increment() => state++;
 }
 ```
 
-You can also:
-- Highlight harmful ingredients
-- Suggest healthy alternatives
-- Visualize nutritional ratios
+Register it:
+
+```dart
+final counterProvider = createNotifier(() => CounterNotifier());
+```
+
+Use it:
+
+```dart
+final counter = watch(counterProvider);
+```
+
+### Scoped Overrides
+
+```dart
+ProviderScope(
+  overrides: [
+    counterProvider.overrideWithValue(CounterNotifier()..state = 999),
+  ],
+  child: MyApp(),
+);
+```
 
 ---
 
-##  Example Use Case
+## 🔮 Coming Soon
 
-Imagine scanning the back of a snack pack. Nutrito can instantly tell you if it’s a good choice for your health and offer better alternatives—right on your mobile device.
-
----
-
-##  Technologies Used
-
-- Flutter & Dart
-- Machine Learning (for ingredient analysis)
-- Flutter Secure Storage (for user data)
-- Flask & MongoDB (backend)
+- 🧪 Built-in testing utilities
+- 🛠 CLI to scaffold providers/notifiers
+- 📦 Code generation annotations like `@yourProvider`
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT License
+
+---
+
+## 👨‍💻 Author
+omJamnekar
+[GitHub](https://github.com/yourusername)
+
+---
+
+## 🙌 Contributions
+
+Feel free to open issues or pull requests! Help improve this package and make Flutter state management more enjoyable.
