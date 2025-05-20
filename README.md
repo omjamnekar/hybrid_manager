@@ -23,7 +23,7 @@ Add the package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  your_package_name: ^0.0.1
+  hybrid_manager: ^0.0.1
 ```
 
 Then run:
@@ -97,7 +97,7 @@ MIT License
 
 ## 👨‍💻 Author
 omJamnekar
-[GitHub](https://github.com/yourusername)
+[GitHub](https://github.com/omjamnekar)
 
 ---
 

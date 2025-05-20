@@ -8,7 +8,9 @@ class Reactive<T> {
   set value(T newValue) {
     if (_value != newValue) {
       _value = newValue;
-      _listeners.forEach((listener) => listener(_value));
+      for (final listener in _listeners) {
+        listener(_value);
+      }
     }
   }
 
