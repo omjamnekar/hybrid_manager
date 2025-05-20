@@ -1,8 +1,8 @@
-abstract class MyStateNotifier<T> {
+abstract class StateNotifier<T> {
   T _state;
   final List<void Function(T)> _listeners = [];
 
-  MyStateNotifier(this._state);
+  StateNotifier(this._state);
 
   T get state => _state;
   set state(T newState) {

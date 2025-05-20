@@ -8,7 +8,7 @@ A powerful yet lightweight state management solution for Flutter that combines t
 ## ✨ Features
 
 - 🔁 `Reactive<T>` for reactive state (like GetX's Rx)
-- 🧠 `MyStateNotifier<T>` for class-based state logic (like Riverpod's StateNotifier)
+- 🧠 `StateNotifier<T>` for class-based state logic (like Riverpod's StateNotifier)
 - 🌱 `Provider<T>` and `ScopedProvider<T>` for dependency injection and state scoping
 - 💡 `watch()` and `read()` for clean, functional state access
 - 🔄 Hot-reload friendly design
@@ -17,7 +17,7 @@ A powerful yet lightweight state management solution for Flutter that combines t
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 Add the package to your `pubspec.yaml`:
 
@@ -34,7 +34,7 @@ flutter pub get
 
 ---
 
-## 🛠 Usage
+##  Usage
 
 ### Functional Reactive State
 
@@ -81,21 +81,21 @@ ProviderScope(
 
 ---
 
-## 🔮 Coming Soon
+##  Coming Soon
 
-- 🧪 Built-in testing utilities
-- 🛠 CLI to scaffold providers/notifiers
-- 📦 Code generation annotations like `@yourProvider`
+-  Built-in testing utilities
+-  CLI to scaffold providers/notifiers
+-  Code generation annotations like `@yourProvider`
 
 ---
 
-## 📄 License
+##  License
 
 MIT License
 
 ---
 
-## 👨‍💻 Author
+##  Author
 omJamnekar
 [GitHub](https://github.com/omjamnekar)
 
