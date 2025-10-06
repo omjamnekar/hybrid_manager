@@ -1,92 +1,87 @@
+counter.listen((value) => print('New value: $value'));
+counter.value++; // Triggers listener
 
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
+This file documents notable changes to the `hybrid_manager` package.
 
 ---
 
-## [0.0.1] - 2025-05-20
+## [0.0.4] - 2024-10-06
 
-###  Added
--  `Reactive<T>` for observable-like behavior (similar to GetX's `Rx<T>`)
--  `MyStateNotifier<T>` for class-based state management (like Riverpod's `StateNotifier`)
--  `Provider<T>` for global state provisioning
--  `ScopedProvider<T>` for overriding providers locally
--  `watch()` and `read()` methods for functional-style state access
--  `ProviderScope` widget for scoped overrides and hot-reload friendliness
--  Basic `injector()` for dependency management
+### Highlights
 
----
+- Major refactor and feature expansion.
+- Improved reactive state management (`Reactive<T>`), state notifiers, and provider system.
+- Added functional hooks (`useState`, `useComputed`, `useEffect`).
+- Introduced route management and enhanced dependency injection.
+- Expanded documentation and provided comprehensive examples.
+- Full test coverage and lint compliance.
 
-###   Code Examples
+### Added
 
-####  Reactive State Example
+- Streams, mapping, and disposal for `Reactive<T>`.
+- Lifecycle management for `StateNotifier<T>`.
+- Provider system: `Provider<T>`, `ScopedProvider<T>`, `ProviderFamily<T>`, `ReactiveProvider<T>`.
+- Functional hooks for state and effects.
+- RouteManager for navigation state.
+- Dependency injection improvements.
+- Hot reload utilities.
+- Provider references (`ProviderRef<T>`).
+- Type-safe APIs and error handling.
+- Annotations for code generation.
 
-```dart
-final counter = Reactive<int>(0);
+### Changed
 
-counter.listen((value) => print('New value: $value'));
-
-counter.value++; // Triggers listener
-```
-
-####  Class-Based State Notifier
-
-```dart
-class CounterNotifier extends MyStateNotifier<int> {
-  CounterNotifier() : super(0);
-
-  void increment() => state++;
-}
-```
-
-Usage:
-
-```dart
-final counterProvider = createNotifier(() => CounterNotifier());
-
-final counter = watch(counterProvider);
-```
-
-####  Scoped Override
-
-```dart
-ProviderScope(
-  overrides: [
-    counterProvider.overrideWithValue(CounterNotifier()..state = 999),
-  ],
-  child: MyApp(),
-);
-```
-
----
+- Restructured codebase for maintainability.
+- Improved API design and documentation.
+- Updated README and CHANGELOG.
 
 ### Fixed
-- N/A (initial release)
+
+- Import and dependency issues.
+- Lint errors and warnings.
+- Test coverage and reliability.
+
+### Removed
+
+- Deprecated and incomplete stubs.
 
 ---
 
-###  Known Limitations
-- No CLI support yet (planned for a future version)
-- Code generation (`@myProvider`) is not included in this version
+## [0.0.3] - 2024-09-01
+
+### Added
+
+- Initial provider and state notifier implementations.
+- Basic reactive state management.
+
+### Fixed
+
+- Addressed import and setup issues.
 
 ---
 
-## Coming Soon
--  CLI to generate providers and notifiers
--  Code generation support for annotated providers
--  Built-in testing utilities
+## [0.0.2] - 2024-08-15
+
+### Added
+
+- Project structure and initial reactive value container.
 
 ---
 
-## Versioning
+## [0.0.1] - 2024-05-20
 
-We follow semantic versioning:
+### Added
 
-- MAJOR version when you make incompatible API changes
-- MINOR version when you add functionality in a backward-compatible manner
-- PATCH version when you make backward-compatible bug fixes
+- Initial package setup.
+- Basic reactive state and provider stubs.
+
+---
+
+## Roadmap & Notes
+
+- CLI tooling and code generation support planned for future releases.
+- For details, see the README and documentation.
 
 ---
